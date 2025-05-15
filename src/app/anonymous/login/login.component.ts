@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginVM } from '@infrastructure/vm/login-vm';
 
 @Component({
@@ -9,12 +10,9 @@ import { LoginVM } from '@infrastructure/vm/login-vm';
 })
 export class LoginComponent {
 
-  loginvm: LoginVM = inject(LoginVM);
+  private loginvm = inject(LoginVM);
+  private router = inject(Router);
   
-  constructor() {
-
-  }
-
   login(){
     this.loginvm.login();
   }

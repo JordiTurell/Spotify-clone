@@ -24,6 +24,8 @@
       "@shared/*": ["src/app/shared/*"],
       "@infrastructure/*": ["src/app/infrastructure/*"],
       "@anonymous/*": ["src/app/anonymous/*"],
+      "@environments/*": ["src/environments/*"],
+      "@models/*": ["src/app/models/*"],
     }
   },
   "angularCompilerOptions": {

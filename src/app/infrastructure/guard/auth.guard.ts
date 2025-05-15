@@ -25,22 +25,13 @@ export class AuthGuard {
     }
 
     CanAccess():Observable<boolean> | boolean {
-        // const token = this.authService.getToken();
-
-        // if (token != null) {
-        //     return this.authService.isAuthenticated(token).pipe(
-        //         map((response) => {
-        //             if (response.authenticated) {
-        //                 return true;
-        //             } else {
-        //                 this.router.navigate(['/login']);
-        //                 return false;
-        //             }
-        //         })
-        //     );
-        // } else {
+        const token = this.authService.getToken();
+        if (token) {
+            this.router.navigate(['/app']);
+            return true;
+        } else {
             this.router.navigate(['/login']);
-            return of(false); 
-        //}
+            return false;
+        }
     }  
 }

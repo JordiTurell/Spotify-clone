@@ -1,22 +1,28 @@
 import { inject, Injectable } from "@angular/core";
 import { LoginService } from "@infrastructure/service/login/login.service";
-import { environment as config } from "src/environments/environment";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class LoginVM {
- 
- sopty_url = `https://accounts.spotify.com/authorize?client_id=${config.clientId}&response_type=code&redirect_uri=${config.redirect_uri}`;
 
-  loginservice: LoginService = inject(LoginService);
-
-  constructor() { 
+  constructor(private loginservice:LoginService, private router:Router) { 
 
   }
 
   login(){
-    window.location.href = this.sopty_url;
+    this.loginservice.login().subscribe({
+      next: (response) => {
+        window.open(response.url, '_blank');
+      },
+      error: (error) => {
+        console.error('Error during login:', error);
+      },
+      complete: () => {
+        this.router.navigate(['/login/callback']);
+      }
+    });
   }
 }
