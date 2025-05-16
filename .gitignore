@@ -1,5 +1,5 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
-Api/config.ts
+#Api/config.ts
 src/environments/environment.ts
 src/environments/environment.development.ts
 
