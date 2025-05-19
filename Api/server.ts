@@ -32,7 +32,7 @@ const generateRandomString = (length) => {
 };
 
 app.use(cors({
-    origin: 'http://localhost:4200', // Usa https si tu frontend también está en https
+    origin: ['http://localhost:4200', 'https://749c-83-41-180-216.ngrok-free.app'], // Usa https si tu frontend también está en https
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization', 'x-file-name']
 }));
@@ -61,7 +61,7 @@ app.get("/login", async (req, res) => {
       redirect_uri: configspoti.redirect_uri,
       state: state
     });
-    res.redirect(url);
+    //res.redirect(url);
   res.json({ url: url})
 });
 
